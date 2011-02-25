@@ -1,3 +1,10 @@
+ip440-asyn-R1-1:
+First RELEASE to be used internally at SLAC
+We should take over maintenance of this code base
+originally developed by Mark Rivers for the EPICS
+Asyn Class.
+Also, we need to add support for interrupts
+
 ip440-asyn-R1-0:
 Initial Release developed by Mark Rivers for
 the Summer 2010 EPICS Asyn Class
