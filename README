@@ -1,0 +1,95 @@
+The Acromag Digital Input Industry Pack Card
+is a 32-channel card.  The device support is via
+asyn and supports the following records:
+longin, mbbi, and bi
+
+This hardware supports interrupts; so software must
+be written to support this.  (Zen Szalata ?)
+
+
+The ip440 library depends on the following external modules
+and should and has been tested under EPICS R3-14-11
+and EPICS R3-14-8-2
+
+To build this library into your IOC Application do 
+the following:
+
+# ========================================================
+# Define external module dependencies
+# ========================================================
+Add this to your <TOP>/configure/RELEASE
+
+IPAC_MODULE_VERSION=ipac-R2-8-lcls8
+ASYN_MODULE_VERSION=asyn-R4-16-lcls1
+
+IPAC=$(EPICS_MODULES)/ipac/$(IPAC_MODULE_VERSION)
+ASYN=$(EPICS_MODULES)/asyn/$(ASYN_MODULE_VERSION)
+# ========================================================
+
+# ========================================================
+# Linking in the Library
+# =========================================================
+Add this to your <TOP>/xxxApp/src/Makefile:
+xxx_DBD += ip440.dbd
+xxx_DBD += asyn.dbd
+xxx_DBD += drvIpac.dbd
+
+# The order is important
+xxx_LIBS += ip440
+xxx_LIBS += Ipac
+xxx_LIBS += asyn
+# =========================================================
+
+# =========================================================
+# EPICS Database Templates
+# =========================================================
+For example, database templates reference the ip440 driver:
+<INSTALL_LOCATION>/db/IP440Bi.template  
+<INSTALL_LOCATION>/db/IP440Li.template  
+<INSTALL_LOCATION>/db/IP440Mbbi.template
+# =========================================================
+
+# =========================================================
+# Starting up an IOC
+# ========================================================
+Add the following to your "st.cmd" file before iocInit():
+
+<TOP>/iocBoot/ioc-xxx
+# ===================== Begin GeneralTime Hack ====================
+# Uncomment the following for EPICS R3-14-10, R3-14-11 and R3-14-12
+#osdTimeRegister()
+# ===================== End GeneralTime Hack ======================
+
+# =============================================================
+# Acromag IP Carrier
+# =============================================================
+ipacAddXy9660("0x0000,0")
+carrier1 = ipacLatestCarrier()
+
+#ipacAddXy9660("0x0400,0")
+#carrier2 = ipacLatestCarrier()
+
+# ====================================================
+# Acromag IP Modules
+# ===================================================
+# initIP440(portName, carrier #, slot #, msec poll)
+initIP440("IP440",0,1,5)
+
+
+# =====================================================
+# Load EPICS Databases
+# =====================================================
+# Have a look at the drivers substitution file example
+# dbLoadRecords("db/IP440.db")
+
+# ================================================
+# Asyn Debugging
+# ================================================
+#asynSetTraceMask("IP440",-1,0xFF)
+#asynSetTraceIOMask("IP440",-1,0x4)
+
+# =================================================
+# Example EDM screens can be found in the driver:
+# =================================================
+<INSTALL_LOCATION>/display/IP440.edl
+<INSTALL_LOCATION>/display/IP440_more.edl

@@ -1,0 +1,14 @@
+record(mbbi,"$(P)$(R)")
+{
+    field(DTYP,"asynUInt32Digital")
+    field(INP,"@asynMask($(PORT) 0 0xffffffff)DIGITAL_DATA")
+    field(ZRST, "All on")
+    field(ZRVL, "0xFFFFFFFF")
+    field(ONST, "All off")
+    field(ONVL, "0x0")
+    field(TWST, "Even on")
+    field(TWVL, "0x55555555")
+    field(THST, "Odd on")
+    field(THVL, "0xAAAAAAAA")
+    field(SCAN, "$(SCAN)")
+}

@@ -1,0 +1,59 @@
+file "IP440Bi.template"
+{
+pattern
+{P,              R,     PORT,    MASK,     SCAN}
+{G13_Acromag:IP440:, Bi0,  IP440, 0x00000001, "I/O Intr"}
+{G13_Acromag:IP440:, Bi1,  IP440, 0x00000002, "I/O Intr"}
+{G13_Acromag:IP440:, Bi2,  IP440, 0x00000004, "I/O Intr"}
+{G13_Acromag:IP440:, Bi3,  IP440, 0x00000008, "I/O Intr"}
+{G13_Acromag:IP440:, Bi4,  IP440, 0x00000010, "I/O Intr"}
+{G13_Acromag:IP440:, Bi5,  IP440, 0x00000020, "I/O Intr"}
+{G13_Acromag:IP440:, Bi6,  IP440, 0x00000040, "I/O Intr"}
+{G13_Acromag:IP440:, Bi7,  IP440, 0x00000080, "I/O Intr"}
+{G13_Acromag:IP440:, Bi8,  IP440, 0x00000100, "I/O Intr"}
+{G13_Acromag:IP440:, Bi9,  IP440, 0x00000200, "I/O Intr"}
+{G13_Acromag:IP440:, Bi10, IP440, 0x00000400, "I/O Intr"}
+{G13_Acromag:IP440:, Bi11, IP440, 0x00000800, "I/O Intr"}
+{G13_Acromag:IP440:, Bi12, IP440, 0x00001000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi13, IP440, 0x00002000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi14, IP440, 0x00004000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi15, IP440, 0x00008000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi16, IP440, 0x00010000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi17, IP440, 0x00020000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi18, IP440, 0x00040000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi19, IP440, 0x00080000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi20, IP440, 0x00100000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi21, IP440, 0x00200000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi22, IP440, 0x00400000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi23, IP440, 0x00800000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi24, IP440, 0x01000000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi25, IP440, 0x02000000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi26, IP440, 0x04000000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi27, IP440, 0x08000000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi28, IP440, 0x10000000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi29, IP440, 0x20000000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi30, IP440, 0x40000000, "I/O Intr"}
+{G13_Acromag:IP440:, Bi31, IP440, 0x80000000, "I/O Intr"}
+}
+
+file "IP440Li.template"
+{
+pattern
+{P,               R,       PORT,    SCAN}
+{G13_Acromag:IP440:,  Li,     IP440, "I/O Intr"}
+}
+
+file "IP440Mbbi.template"
+{
+pattern
+{P,               R,       PORT,  SCAN}
+{G13_Acromag:IP440:,  Mbbi,   IP440, "I/O Intr"}
+}
+
+file "asynRecord.db"
+{
+pattern
+{P,               R,       PORT,  ADDR, OMAX, IMAX}
+{G13_Acromag:IP440:,  asyn,   IP440,     0,    0,    0}
+}
+
