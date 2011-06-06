@@ -1,3 +1,5 @@
+ip440-asyn-R1-2: Building against ipac-R2-11-lcls1 and asyn-R4-17-RC1-lcls1
+
 ip440-asyn-R1-1:
 First RELEASE to be used internally at SLAC
 We should take over maintenance of this code base
