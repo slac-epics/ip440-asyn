@@ -1,3 +1,5 @@
+ip440-asyn-R1-2-2: Building against ipac-R2-11_1-0 and asyn-R4-20_1-1
+
 ip440-asyn-R1-2-1: Building against ipac-R2-11-lcls1 and asyn-R4-18-lcls2
 
 ip440-asyn-R1-2: Building against ipac-R2-11-lcls1 and asyn-R4-17-RC1-lcls1
