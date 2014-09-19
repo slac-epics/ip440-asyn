@@ -23,10 +23,10 @@
 #define MAX_MESSAGES 1000
 
 typedef struct {
-    volatile epicsUInt8 *inputPort0;
-    volatile epicsUInt8 *inputPort1;
-    volatile epicsUInt8 *inputPort2;
-    volatile epicsUInt8 *inputPort3;
+    volatile epicsUInt16 *inputPort0;
+    volatile epicsUInt16 *inputPort1;
+    volatile epicsUInt16 *inputPort2;
+    volatile epicsUInt16 *inputPort3;
 } IP440Registers;
 
 static const char *driverName = "IP440";
@@ -42,7 +42,7 @@ public:
     void pollerThread();  
 
 private:
-    epicsUInt8 *baseAddress;
+    epicsUInt16 *baseAddress;
     IP440Registers regs;
     epicsUInt32 prevValue;
     double pollTime;
@@ -66,7 +66,7 @@ IP440::IP440(const char *portName, int carrier, int slot, int msecPoll)
 {
     //static const char *functionName = "IP440";
     ipac_idProm_t *id;
-    epicsUInt8 *base;
+    epicsUInt16 *base;
     int manufacturer, model;
    
     this->pollTime = msecPoll / 1000.;
@@ -78,7 +78,7 @@ IP440::IP440(const char *portName, int carrier, int slot, int msecPoll)
        return;
     }
     id = (ipac_idProm_t *) ipmBaseAddr(carrier, slot, ipac_addrID);
-    base = (epicsUInt8 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
+    base = (epicsUInt16 *) ipmBaseAddr(carrier, slot, ipac_addrIO);
     this->baseAddress = base;
     manufacturer = id->manufacturerId & 0xff;
     model = id->modelId & 0xff;
@@ -91,10 +91,10 @@ IP440::IP440(const char *portName, int carrier, int slot, int msecPoll)
 
     /* Set up the register pointers.*/
     /* Define registers in units of 8-bit bytes */
-    this->regs.inputPort0 = base + 0x1;
-    this->regs.inputPort1 = base + 0x3;
-    this->regs.inputPort2 = base + 0x5;
-    this->regs.inputPort3 = base + 0x7;
+    this->regs.inputPort0 = base;
+    this->regs.inputPort1 = base + 0x1;
+    this->regs.inputPort2 = base + 0x2;
+    this->regs.inputPort3 = base + 0x3;
     
     /* Create the asynPortDriver parameter for the data */
     createParam("DIGITAL_DATA", asynParamUInt32Digital, &this->dataParam); 
@@ -115,13 +115,14 @@ asynStatus IP440::readUInt32Digital(asynUser *pasynUser, epicsUInt32 *value, epi
 {
     static const char *functionName = "readUInt32Digital";
     IP440Registers r = this->regs;
+    int i;
 
     if (!this->initialized) return(asynError);
-    *value  = *r.inputPort0;
-    *value |= ((*r.inputPort1) << 8);
-    *value |= ((*r.inputPort2) << 16);
-    *value |= ((*r.inputPort3) << 24);
+    *value = *r.inputPort0 & 0xff;
+    for (i = 1; i < 4; i++)
+        *value  |= (*(r.inputPort0 + i) & 0xff) << (i * 8);
     *value &= mask;
+    
     asynPrint(pasynUser, ASYN_TRACEIO_DRIVER,
               "%s:%s:, *value=%x\n", 
               driverName, functionName, *value);

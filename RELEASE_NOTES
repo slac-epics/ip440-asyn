@@ -1,3 +1,5 @@
+ip440-asyn-R1-2-4: added support for Linux uTCA/PCI/PCIe
+
 ip440-asyn-R1-2-3: Building against ipac-R2-11_1-0 and asyn-R4-21_1-0
 
 ip440-asyn-R1-2-2: Building against ipac-R2-11_1-0 and asyn-R4-20_1-1
