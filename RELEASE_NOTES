@@ -1,3 +1,7 @@
+ip440-asyn-R1-2-5: Build against ipac-R2-11_1-2 and asyn-R4-23_1-2
+                   This was all triggered by a new linuxRT tool-chain which exposed a
+                   problem in Hytec's IP carrier for mTCA source code
+
 ip440-asyn-R1-2-4: added support for Linux uTCA/PCI/PCIe
 
 ip440-asyn-R1-2-3: Building against ipac-R2-11_1-0 and asyn-R4-21_1-0
