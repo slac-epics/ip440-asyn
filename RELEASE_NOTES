@@ -1,3 +1,7 @@
+R1.3.0:	bhill, 1/27/2017
+	Modified to build w/ git workflow
+	Built w/ ipac/R2.11-1.4.1  and asyn/R4.30-1.1.1
+
 ip440-asyn-R1-2-5: Build against ipac-R2-11_1-2 and asyn-R4-25_1-0
                    This was all triggered by a new linuxRT tool-chain which exposed a
                    problem in Hytec's IP carrier for mTCA source code
