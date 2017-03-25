@@ -1,3 +1,7 @@
+R1.3.1:	bhill, 3/24/2017
+	Modified how CROSS_COMPILER_TARGET_ARCHS is derived so we can build for
+	different base versions that don't support the same set of cross compile architectures.
+
 R1.3.0:	bhill, 1/27/2017
 	Modified to build w/ git workflow
 	Built w/ ipac/R2.11-1.4.1  and asyn/R4.30-1.1.1
