@@ -19,8 +19,8 @@
 # Don't set your version to anything such as "test" that
 # could match a directory name.
 # ==========================================================
-IPAC_MODULE_VERSION		= R2.11-1.4.1
-ASYN_MODULE_VERSION		= R4.30-1.1.1
+IPAC_MODULE_VERSION		= R2.14-0.2.0
+ASYN_MODULE_VERSION		= R4.32-1.0.0 
 
 # ============================================================
 #  IPAC release V2-7 or later is required.

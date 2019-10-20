@@ -1,3 +1,7 @@
+R1.3.2:	K. Luchini, 10/20/2019
+        Upgrade to IPAC R2.14-0.2.0 
+        Upgrade to ASYN R4.32-1.0.0 
+
 R1.3.1:	bhill, 3/24/2017
 	Modified how CROSS_COMPILER_TARGET_ARCHS is derived so we can build for
 	different base versions that don't support the same set of cross compile architectures.
