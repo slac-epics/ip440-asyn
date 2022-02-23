@@ -20,7 +20,7 @@
 # could match a directory name.
 # ==========================================================
 IPAC_MODULE_VERSION		= R2.15-1.0.0
-ASYN_MODULE_VERSION		= R4.32-1.0.0
+ASYN_MODULE_VERSION		= R4.39-1.0.1
 # ============================================================
 #  IPAC release V2-7 or later is required.
 # Carrier card support for acromag and xycom
